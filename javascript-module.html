@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript - EduTrack</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="module" data-module="JavaScript">
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <header class="topbar">
+    <div class="brand-wrap">
+      <div class="logo">E</div>
+      <div>
+        <h1>EduTrack</h1>
+        <p>JavaScript Module</p>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Dashboard</a>
+      <a href="dom-module.html">Next Module</a>
+    </nav>
+  </header>
+
+  <main class="module-page-wrapper">
+    <section class="module-main">
+      <div class="module-hero">
+        <span class="pill">FWD CO3</span>
+        <h2>JavaScript</h2>
+        <p>
+          JavaScript brings logic and behavior to the web.
+          It is used for conditions, loops, events, arrays, functions, objects, and dynamic programming.
+        </p>
+
+        <div class="module-meta">
+          <span class="meta-chip">Functions</span>
+          <span class="meta-chip">Arrays</span>
+          <span class="meta-chip">Objects</span>
+          <span class="meta-chip">Events</span>
+        </div>
+      </div>
+
+      <div class="module-actions-bar">
+        <button id="bookmarkModuleBtn" class="btn btn-primary" type="button">Toggle Bookmark</button>
+        <button id="completeModuleBtn" class="btn btn-secondary" type="button">Toggle Complete</button>
+        <a class="btn btn-secondary" href="index.html">Back to Dashboard</a>
+      </div>
+
+      <section class="module-content">
+        <article class="module-content-block">
+          <h3>1. Variables and Data Types</h3>
+          <p>
+            JavaScript works with numbers, strings, booleans, arrays, objects, null, and undefined.
+            Variables are commonly declared using let and const.
+          </p>
+        </article>
+
+        <article class="module-content-block">
+          <h3>2. Conditions and Loops</h3>
+          <p>
+            if, else if, else, switch, for, while, and for...of are used to control program flow.
+          </p>
+        </article>
+
+        <article class="module-content-block">
+          <h3>3. Functions</h3>
+          <p>
+            Functions organize logic into reusable blocks.
+            JavaScript supports regular functions, arrow functions, and callback functions.
+          </p>
+        </article>
+
+        <article class="module-content-block">
+          <h3>4. Arrays and Objects</h3>
+          <p>
+            Arrays store ordered data, while objects store key-value pairs.
+            Common array methods include map, filter, and reduce.
+          </p>
+        </article>
+      </section>
+    </section>
+
+    <aside class="module-sidebar-card">
+      <div class="action-tile">
+        <h3>Module Analytics</h3>
+        <ul class="simple-list">
+          <li>Opens: <strong id="moduleOpenCount">0</strong></li>
+          <li>Time Spent: <strong id="moduleTimeSpent">0s</strong></li>
+          <li>Scroll Depth: <strong id="moduleScrollDepth">0%</strong></li>
+          <li>Clicks: <strong id="moduleClickCount">0</strong></li>
+          <li>Bookmark: <strong id="bookmarkStatus">Not Bookmarked</strong></li>
+          <li>Status: <strong id="completeStatus">Not Completed</strong></li>
+        </ul>
+      </div>
+
+      <div class="action-tile">
+        <h3>Quick Note</h3>
+        <textarea id="noteInput" class="note-area" rows="5" placeholder="Write a quick note..."></textarea>
+        <br><br>
+        <button id="saveNoteBtn" class="btn btn-primary" type="button">Save Note</button>
+      </div>
+    </aside>
+  </main>
+
+  <script src="tracker.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Structures - EduTrack</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="module" data-module="Data Structures">
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <header class="topbar">
+    <div class="brand-wrap">
+      <div class="logo">E</div>
+      <div>
+        <h1>EduTrack</h1>
+        <p>Data Structures Module</p>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Dashboard</a>
+      <a href="html-module.html">Back to First Module</a>
+    </nav>
+  </header>
+
+  <main class="module-page-wrapper">
+    <section class="module-main">
+      <div class="module-hero">
+        <span class="pill">DSA CO2-CO4</span>
+        <h2>Data Structures</h2>
+        <p>
+          Data structures organize data for efficient storage, access, insertion, deletion, and processing.
+          They are the foundation of scalable software design.
+        </p>
+
+        <div class="module-meta">
+          <span class="meta-chip">Arrays</span>
+          <span class="meta-chip">Linked Lists</span>
+          <span class="meta-chip">Stacks & Queues</span>
+          <span class="meta-chip">Hashing</span>
+        </div>
+      </div>
+
+      <div class="module-actions-bar">
+        <button id="bookmarkModuleBtn" class="btn btn-primary" type="button">Toggle Bookmark</button>
+        <button id="completeModuleBtn" class="btn btn-secondary" type="button">Toggle Complete</button>
+        <a class="btn btn-secondary" href="index.html">Back to Dashboard</a>
+      </div>
+
+      <section class="module-content">
+        <article class="module-content-block">
+          <h3>1. Linear Structures</h3>
+          <p>
+            Arrays and linked lists are linear structures. Arrays provide direct index access,
+            while linked lists allow flexible insertion and deletion.
+          </p>
+        </article>
+
+        <article class="module-content-block">
+          <h3>2. Stacks and Queues</h3>
+          <p>
+            Stacks work on LIFO order and are useful for undo, recursion, and expression handling.
+            Queues work on FIFO order and model waiting lines, jobs, and event processing.
+          </p>
+        </article>
+
+        <article class="module-content-block">
+          <h3>3. Hashing</h3>
+          <p>
+            Hash tables enable fast lookup and updates by mapping keys to indexes.
+            They are widely used in contact storage, caching, and indexing systems.
+          </p>
+        </article>
+
+        <article class="module-content-block">
+          <h3>4. Practical Relevance</h3>
+          <p>
+            This project itself uses queue, stack, map-style storage, sorting, search,
+            and linked-list-style activity handling in the frontend.
+          </p>
+        </article>
+      </section>
+    </section>
+
+    <aside class="module-sidebar-card">
+      <div class="action-tile">
+        <h3>Module Analytics</h3>
+        <ul class="simple-list">
+          <li>Opens: <strong id="moduleOpenCount">0</strong></li>
+          <li>Time Spent: <strong id="moduleTimeSpent">0s</strong></li>
+          <li>Scroll Depth: <strong id="moduleScrollDepth">0%</strong></li>
+          <li>Clicks: <strong id="moduleClickCount">0</strong></li>
+          <li>Bookmark: <strong id="bookmarkStatus">Not Bookmarked</strong></li>
+          <li>Status: <strong id="completeStatus">Not Completed</strong></li>
+        </ul>
+      </div>
+
+      <div class="action-tile">
+        <h3>Quick Note</h3>
+        <textarea id="noteInput" class="note-area" rows="5" placeholder="Write a quick note..."></textarea>
+        <br><br>
+        <button id="saveNoteBtn" class="btn btn-primary" type="button">Save Note</button>
+      </div>
+    </aside>
+  </main>
+
+  <script src="tracker.js"></script>
+</body>
+</html>

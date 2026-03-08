@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduTrack Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="dashboard">
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <header class="topbar">
+    <div class="brand-wrap">
+      <div class="logo">E</div>
+      <div>
+        <h1>EduTrack</h1>
+        <p>Educational Analytics Dashboard</p>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#overview">Overview</a>
+      <a href="#modules">Modules</a>
+      <a href="#goals">Goals</a>
+      <a href="#activity">Activity</a>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <section class="main-area">
+      <section id="overview" class="card hero-card">
+        <div class="hero-left">
+          <span class="pill">DSA + FWD Project</span>
+          <h2>A multi-page educational tracker with live analytics.</h2>
+          <p>
+            Open modules on separate pages, read content, bookmark topics, mark them complete,
+            and watch the dashboard update automatically using browser storage.
+          </p>
+
+          <div class="hero-buttons">
+            <button id="resetAnalyticsBtn" class="btn btn-primary" type="button">Reset Analytics</button>
+            <button id="undoBtn" class="btn btn-secondary" type="button">Undo Last Action</button>
+          </div>
+        </div>
+
+        <div class="hero-right mini-panel">
+          <h3>Core Concepts Used</h3>
+          <ul class="clean-list">
+            <li>Queue for event tracking</li>
+            <li>Stack for undo</li>
+            <li>Map-style stats storage</li>
+            <li>Sorting for top topics</li>
+            <li>Search for modules</li>
+            <li>Linked-list style recent activity</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" id="modules">
+        <div class="section-head">
+          <div>
+            <h2>Modules</h2>
+            <p>Each module opens its own page and contributes to analytics.</p>
+          </div>
+        </div>
+
+        <div class="search-wrap">
+          <input type="text" id="searchInput" placeholder="Search modules..." />
+          <ul id="searchResults" class="simple-list"></ul>
+        </div>
+
+        <div class="module-grid">
+          <article class="module-card shimmer-card">
+            <div class="module-top">
+              <span class="module-badge">FWD CO1</span>
+              <h3>HTML Basics</h3>
+            </div>
+            <p>Semantic tags, forms, media elements, and accessible structure.</p>
+            <div class="module-actions">
+              <a class="btn small open-link" href="html-module.html">Open Module</a>
+            </div>
+          </article>
+
+          <article class="module-card shimmer-card">
+            <div class="module-top">
+              <span class="module-badge">FWD CO2</span>
+              <h3>CSS Styling</h3>
+            </div>
+            <p>Selectors, layouts, typography, flexbox, grid, and responsiveness.</p>
+            <div class="module-actions">
+              <a class="btn small open-link" href="css-module.html">Open Module</a>
+            </div>
+          </article>
+
+          <article class="module-card shimmer-card">
+            <div class="module-top">
+              <span class="module-badge">FWD CO3</span>
+              <h3>JavaScript</h3>
+            </div>
+            <p>Variables, arrays, functions, loops, conditions, and callbacks.</p>
+            <div class="module-actions">
+              <a class="btn small open-link" href="javascript-module.html">Open Module</a>
+            </div>
+          </article>
+
+          <article class="module-card shimmer-card">
+            <div class="module-top">
+              <span class="module-badge">FWD CO4</span>
+              <h3>DOM Interactivity</h3>
+            </div>
+            <p>Events, dynamic UI updates, DOM manipulation, and interaction design.</p>
+            <div class="module-actions">
+              <a class="btn small open-link" href="dom-module.html">Open Module</a>
+            </div>
+          </article>
+
+          <article class="module-card shimmer-card">
+            <div class="module-top">
+              <span class="module-badge">DSA CO1</span>
+              <h3>Algorithms</h3>
+            </div>
+            <p>Searching, sorting, complexity analysis, and efficiency comparison.</p>
+            <div class="module-actions">
+              <a class="btn small open-link" href="algorithms-module.html">Open Module</a>
+            </div>
+          </article>
+
+          <article class="module-card shimmer-card">
+            <div class="module-top">
+              <span class="module-badge">DSA CO2-CO4</span>
+              <h3>Data Structures</h3>
+            </div>
+            <p>Arrays, linked lists, stacks, queues, hashing, heaps, and applications.</p>
+            <div class="module-actions">
+              <a class="btn small open-link" href="data-structures-module.html">Open Module</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card" id="goals">
+        <div class="section-head">
+          <div>
+            <h2>Study Goals</h2>
+            <p>Add goals, prioritize them, and pop the highest priority goal.</p>
+          </div>
+        </div>
+
+        <form id="goalForm" class="goal-form">
+          <input type="text" id="goalText" placeholder="Enter a study goal..." required />
+          <select id="goalPriority" required>
+            <option value="">Priority</option>
+            <option value="1">High</option>
+            <option value="2">Medium</option>
+            <option value="3">Low</option>
+          </select>
+          <button class="btn btn-primary" type="submit">Add Goal</button>
+        </form>
+
+        <div class="goal-actions">
+          <button id="popGoalBtn" class="btn btn-secondary" type="button">Pop Top Goal</button>
+          <button id="clearGoalsBtn" class="btn btn-secondary" type="button">Clear Goals</button>
+        </div>
+
+        <ul id="goalList" class="simple-list"></ul>
+      </section>
+
+      <section class="card" id="activity">
+        <div class="section-head">
+          <div>
+            <h2>Activity Summary</h2>
+            <p>The analytics panel shows combined data from all module pages.</p>
+          </div>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-box hover-lift">
+            <h3>Multi-Page Tracking</h3>
+            <p>Each module page records opens, clicks, time spent, scroll depth, bookmarks, and completion.</p>
+          </div>
+          <div class="info-box hover-lift">
+            <h3>Pure Frontend</h3>
+            <p>No backend is used. All analytics are stored locally using localStorage in the browser.</p>
+          </div>
+          <div class="info-box hover-lift">
+            <h3>Clean Navigation</h3>
+            <p>The dashboard remains the central page while modules open as separate learning pages.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <aside class="analytics-panel">
+      <div class="analytics-inner">
+        <div class="analytics-head">
+          <h2>Live Analytics</h2>
+          <span class="live-dot"></span>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card hover-lift">
+            <span>Total Clicks</span>
+            <strong id="clickCount">0</strong>
+          </div>
+          <div class="stat-card hover-lift">
+            <span>Avg Scroll</span>
+            <strong id="scrollDepth">0%</strong>
+          </div>
+          <div class="stat-card hover-lift">
+            <span>Total Time</span>
+            <strong id="timeSpent">0s</strong>
+          </div>
+          <div class="stat-card hover-lift">
+            <span>Queue Size</span>
+            <strong id="queueSize">0</strong>
+          </div>
+          <div class="stat-card hover-lift">
+            <span>Bookmarks</span>
+            <strong id="bookmarkCount">0</strong>
+          </div>
+          <div class="stat-card hover-lift">
+            <span>Completed</span>
+            <strong id="completedModulesCount">0</strong>
+          </div>
+          <div class="stat-card hover-lift">
+            <span>Total Modules</span>
+            <strong id="totalModulesCount">6</strong>
+          </div>
+          <div class="stat-card hover-lift">
+            <span>Most Active</span>
+            <strong id="mostActiveTopic">-</strong>
+          </div>
+        </div>
+
+        <div class="analytics-box">
+          <h3>Top Topics</h3>
+          <ul id="topTopicsList" class="simple-list"></ul>
+        </div>
+
+        <div class="analytics-box">
+          <h3>Recent Activity</h3>
+          <ul id="recentActivityList" class="simple-list"></ul>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="tracker.js"></script>
+</body>
+</html>

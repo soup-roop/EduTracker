@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Basics - EduTrack</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="module" data-module="HTML Basics">
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <header class="topbar">
+    <div class="brand-wrap">
+      <div class="logo">E</div>
+      <div>
+        <h1>EduTrack</h1>
+        <p>HTML Basics Module</p>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Dashboard</a>
+      <a href="css-module.html">Next Module</a>
+    </nav>
+  </header>
+
+  <main class="module-page-wrapper">
+    <section class="module-main">
+      <div class="module-hero">
+        <span class="pill">FWD CO1</span>
+        <h2>HTML Basics</h2>
+        <p>
+          HTML forms the structure of every webpage. It defines headings, paragraphs,
+          links, forms, images, tables, media, and semantic sections that make content meaningful and accessible.
+        </p>
+
+        <div class="module-meta">
+          <span class="meta-chip">Semantic Tags</span>
+          <span class="meta-chip">Forms</span>
+          <span class="meta-chip">Media Elements</span>
+          <span class="meta-chip">Accessibility</span>
+        </div>
+      </div>
+
+      <div class="module-actions-bar">
+        <button id="bookmarkModuleBtn" class="btn btn-primary" type="button">Toggle Bookmark</button>
+        <button id="completeModuleBtn" class="btn btn-secondary" type="button">Toggle Complete</button>
+        <a class="btn btn-secondary" href="index.html">Back to Dashboard</a>
+      </div>
+
+      <section class="module-content">
+        <article class="module-content-block">
+          <h3>1. Structure of a Page</h3>
+          <p>
+            A standard HTML document begins with a doctype declaration, followed by the html, head, and body tags.
+            The head contains metadata like title and viewport settings, while the body contains everything visible on the page.
+          </p>
+        </article>
+
+        <article class="module-content-block">
+          <h3>2. Semantic Tags</h3>
+          <p>
+            Semantic tags such as header, nav, section, article, aside, and footer improve readability and accessibility.
+            They help search engines and screen readers understand the meaning of different parts of the page.
+          </p>
+          <ul>
+            <li><strong>header</strong> for the top area</li>
+            <li><strong>nav</strong> for navigation links</li>
+            <li><strong>section</strong> for grouped content</li>
+            <li><strong>article</strong> for self-contained content</li>
+          </ul>
+        </article>
+
+        <article class="module-content-block">
+          <h3>3. Forms and Inputs</h3>
+          <p>
+            Forms allow users to enter and submit data. Common form controls include input, textarea, select,
+            radio buttons, and checkboxes.
+          </p>
+        </article>
+
+        <article class="module-content-block">
+          <h3>4. Media and Accessibility</h3>
+          <p>
+            HTML supports images, audio, video, and picture elements. Accessibility is improved by using alt text,
+            labels, correct heading order, and meaningful link text.
+          </p>
+        </article>
+      </section>
+    </section>
+
+    <aside class="module-sidebar-card">
+      <div class="action-tile">
+        <h3>Module Analytics</h3>
+        <p>Live stats for this page.</p>
+        <ul class="simple-list">
+          <li>Opens: <strong id="moduleOpenCount">0</strong></li>
+          <li>Time Spent: <strong id="moduleTimeSpent">0s</strong></li>
+          <li>Scroll Depth: <strong id="moduleScrollDepth">0%</strong></li>
+          <li>Clicks: <strong id="moduleClickCount">0</strong></li>
+          <li>Bookmark: <strong id="bookmarkStatus">Not Bookmarked</strong></li>
+          <li>Status: <strong id="completeStatus">Not Completed</strong></li>
+        </ul>
+      </div>
+
+      <div class="action-tile">
+        <h3>Quick Note</h3>
+        <p>Add a short note for this module.</p>
+        <textarea id="noteInput" class="note-area" rows="5" placeholder="Write a quick note..."></textarea>
+        <br><br>
+        <button id="saveNoteBtn" class="btn btn-primary" type="button">Save Note</button>
+      </div>
+
+      <p class="helper-note">
+        This page updates the main dashboard automatically using localStorage.
+      </p>
+    </aside>
+  </main>
+
+  <script src="tracker.js"></script>
+</body>
+</html>
