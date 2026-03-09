@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- CO Mapping: FWD CO1–CO5 for frontend structure and interaction + DSA CO5–CO6 for analytics workflow application -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,11 +7,14 @@
   <title>EduTrack Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body data-page="dashboard">
+
   <div class="bg-orb orb-1"></div>
   <div class="bg-orb orb-2"></div>
   <div class="bg-grid"></div>
 
+  <!-- FWD CO1, CO2: Semantic HTML structure and navigation layout -->
   <header class="topbar">
     <div class="brand-wrap">
       <div class="logo">E</div>
@@ -30,6 +34,8 @@
 
   <main class="layout">
     <section class="main-area">
+
+      <!-- FWD CO3, CO4: Interactive dashboard overview controlled through JavaScript -->
       <section id="overview" class="card hero-card">
         <div class="hero-left">
           <span class="pill">DSA + FWD Project</span>
@@ -58,6 +64,7 @@
         </div>
       </section>
 
+      <!-- DSA CO1: Module search and ranking demonstrate searching and sorting concepts -->
       <section class="card" id="modules">
         <div class="section-head">
           <div>
@@ -72,6 +79,7 @@
         </div>
 
         <div class="module-grid">
+
           <article class="module-card shimmer-card">
             <div class="module-top">
               <span class="module-badge">FWD CO1</span>
@@ -137,9 +145,11 @@
               <a class="btn small open-link" href="data-structures-module.html">Open Module</a>
             </div>
           </article>
+
         </div>
       </section>
 
+      <!-- DSA CO3: Study goals simulate priority queue behavior -->
       <section class="card" id="goals">
         <div class="section-head">
           <div>
@@ -167,6 +177,7 @@
         <ul id="goalList" class="simple-list"></ul>
       </section>
 
+      <!-- DSA CO5: Real-world analytics dashboard applying data structures -->
       <section class="card" id="activity">
         <div class="section-head">
           <div>
@@ -192,6 +203,7 @@
       </section>
     </section>
 
+    <!-- FWD CO4 + DSA CO6: Live analytics panel updated dynamically using JavaScript -->
     <aside class="analytics-panel">
       <div class="analytics-inner">
         <div class="analytics-head">
@@ -247,6 +259,7 @@
     </aside>
   </main>
 
+  <!-- FWD CO3, CO4 + DSA CO6: JavaScript tracker controlling analytics and user interaction processing -->
   <script src="tracker.js"></script>
 </body>
 </html>
