@@ -1,17 +1,20 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- CO1: HTML5 document declaration -->
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JavaScript - EduTrack</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" /> <!-- CO1: Character encoding setup -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- CO1: Responsive viewport setup -->
+  <title>JavaScript - EduTrack</title> <!-- CO1: Page title definition -->
+  <link rel="stylesheet" href="style.css" /> <!-- CO2: External CSS styling -->
 </head>
-<body data-page="module" data-module="JavaScript">
-  <div class="bg-orb orb-1"></div>
-  <div class="bg-orb orb-2"></div>
-  <div class="bg-grid"></div>
 
-  <header class="topbar">
+<body data-page="module" data-module="JavaScript"> <!-- CO4: Module analytics tracking -->
+
+  <div class="bg-orb orb-1"></div> <!-- CO2: Decorative CSS background -->
+  <div class="bg-orb orb-2"></div> <!-- CO2: UI visual styling -->
+  <div class="bg-grid"></div> <!-- CO2: Layout background grid -->
+
+  <header class="topbar"> <!-- CO1: Semantic header section -->
+
     <div class="brand-wrap">
       <div class="logo">E</div>
       <div>
@@ -20,17 +23,21 @@
       </div>
     </div>
 
-    <nav class="nav">
+    <nav class="nav"> <!-- CO1: Navigation structure -->
       <a href="index.html">Dashboard</a>
       <a href="dom-module.html">Next Module</a>
     </nav>
+
   </header>
 
-  <main class="module-page-wrapper">
+  <main class="module-page-wrapper"> <!-- CO1: Main page layout -->
+
     <section class="module-main">
+
       <div class="module-hero">
         <span class="pill">FWD CO3</span>
         <h2>JavaScript</h2>
+
         <p>
           JavaScript brings logic and behavior to the web.
           It is used for conditions, loops, events, arrays, functions, objects, and dynamic programming.
@@ -42,51 +49,74 @@
           <span class="meta-chip">Objects</span>
           <span class="meta-chip">Events</span>
         </div>
+
       </div>
 
       <div class="module-actions-bar">
-        <button id="bookmarkModuleBtn" class="btn btn-primary" type="button">Toggle Bookmark</button>
-        <button id="completeModuleBtn" class="btn btn-secondary" type="button">Toggle Complete</button>
+
+        <button id="bookmarkModuleBtn" class="btn btn-primary" type="button">Toggle Bookmark</button> <!-- CO4: User interaction tracking -->
+
+        <button id="completeModuleBtn" class="btn btn-secondary" type="button">Toggle Complete</button> <!-- CO4: Completion tracking -->
+
         <a class="btn btn-secondary" href="index.html">Back to Dashboard</a>
+
       </div>
 
       <section class="module-content">
+
         <article class="module-content-block">
+
           <h3>1. Variables and Data Types</h3>
+
           <p>
             JavaScript works with numbers, strings, booleans, arrays, objects, null, and undefined.
             Variables are commonly declared using let and const.
           </p>
+
         </article>
 
         <article class="module-content-block">
+
           <h3>2. Conditions and Loops</h3>
+
           <p>
             if, else if, else, switch, for, while, and for...of are used to control program flow.
           </p>
+
         </article>
 
         <article class="module-content-block">
+
           <h3>3. Functions</h3>
+
           <p>
             Functions organize logic into reusable blocks.
             JavaScript supports regular functions, arrow functions, and callback functions.
           </p>
+
         </article>
 
         <article class="module-content-block">
+
           <h3>4. Arrays and Objects</h3>
+
           <p>
             Arrays store ordered data, while objects store key-value pairs.
             Common array methods include map, filter, and reduce.
           </p>
+
         </article>
+
       </section>
+
     </section>
 
-    <aside class="module-sidebar-card">
+    <aside class="module-sidebar-card"> <!-- CO1: Sidebar layout section -->
+
       <div class="action-tile">
-        <h3>Module Analytics</h3>
+
+        <h3>Module Analytics</h3> <!-- CO4: Analytics display -->
+
         <ul class="simple-list">
           <li>Opens: <strong id="moduleOpenCount">0</strong></li>
           <li>Time Spent: <strong id="moduleTimeSpent">0s</strong></li>
@@ -95,17 +125,26 @@
           <li>Bookmark: <strong id="bookmarkStatus">Not Bookmarked</strong></li>
           <li>Status: <strong id="completeStatus">Not Completed</strong></li>
         </ul>
+
       </div>
 
       <div class="action-tile">
-        <h3>Quick Note</h3>
+
+        <h3>Quick Note</h3> <!-- CO4: User note interaction -->
+
         <textarea id="noteInput" class="note-area" rows="5" placeholder="Write a quick note..."></textarea>
+
         <br><br>
+
         <button id="saveNoteBtn" class="btn btn-primary" type="button">Save Note</button>
+
       </div>
+
     </aside>
+
   </main>
 
-  <script src="tracker.js"></script>
+  <script src="tracker.js"></script> <!-- CO4: JavaScript analytics and DOM interaction -->
+
 </body>
 </html>
