@@ -1,9 +1,12 @@
+/* FWD CO1, CO2, CO5: CSS styling, responsive layout, and interface design for the frontend analytics platform */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* FWD CO1: Global theme variables for consistent visual design */
 :root {
   --bg-1: #0b1220;
   --bg-2: #11192b;
@@ -20,10 +23,12 @@
   --radius: 20px;
 }
 
+/* FWD CO2: Smooth navigation behavior for linked sections */
 html {
   scroll-behavior: smooth;
 }
 
+/* FWD CO1: Base body styling and global page appearance */
 body {
   font-family: Arial, sans-serif;
   color: var(--text);
@@ -36,17 +41,20 @@ body {
   position: relative;
 }
 
+/* FWD CO1: Link presentation styling */
 a {
   text-decoration: none;
   color: inherit;
 }
 
+/* FWD CO2: Form and control consistency */
 button,
 input,
 select {
   font: inherit;
 }
 
+/* FWD CO5: Decorative background effects for polished UI presentation */
 .bg-orb {
   position: fixed;
   width: 280px;
@@ -70,6 +78,7 @@ select {
   bottom: -70px;
 }
 
+/* FWD CO5: Grid background effect for visual enhancement */
 .bg-grid {
   position: fixed;
   inset: 0;
@@ -82,6 +91,7 @@ select {
   z-index: 0;
 }
 
+/* FWD CO2: Layering structure for main layout components */
 .topbar,
 .layout,
 .module-page-wrapper {
@@ -89,6 +99,7 @@ select {
   z-index: 1;
 }
 
+/* FWD CO2: Navigation bar layout and alignment */
 .topbar {
   width: 92%;
   max-width: 1380px;
@@ -105,12 +116,14 @@ select {
   box-shadow: var(--shadow);
 }
 
+/* FWD CO2: Branding alignment and header grouping */
 .brand-wrap {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
+/* FWD CO5: Styled logo component */
 .logo {
   width: 52px;
   height: 52px;
@@ -133,12 +146,14 @@ select {
   font-size: 0.92rem;
 }
 
+/* FWD CO2: Navigation link arrangement */
 .nav {
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
 }
 
+/* FWD CO4: Interactive link hover behavior */
 .nav a {
   color: var(--muted);
   position: relative;
@@ -165,6 +180,7 @@ select {
   width: 100%;
 }
 
+/* FWD CO2: Main dashboard layout using grid */
 .layout {
   width: 92%;
   max-width: 1380px;
@@ -175,12 +191,14 @@ select {
   align-items: start;
 }
 
+/* FWD CO2: Vertical arrangement of content sections */
 .main-area {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
+/* FWD CO1, CO5: Shared card and panel styling */
 .card,
 .analytics-inner,
 .module-main,
@@ -196,6 +214,7 @@ select {
   padding: 24px;
 }
 
+/* FWD CO2: Hero section grid arrangement */
 .hero-card {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -215,6 +234,7 @@ select {
   max-width: 760px;
 }
 
+/* FWD CO2: Hero button grouping */
 .hero-buttons {
   display: flex;
   gap: 12px;
@@ -222,6 +242,7 @@ select {
   margin-top: 20px;
 }
 
+/* FWD CO5: Pill-style label styling */
 .pill {
   display: inline-block;
   padding: 8px 12px;
@@ -232,6 +253,7 @@ select {
   font-size: 0.84rem;
 }
 
+/* FWD CO1: Supporting panel styling */
 .mini-panel {
   padding: 20px;
   background: var(--card);
@@ -243,6 +265,7 @@ select {
   margin-bottom: 12px;
 }
 
+/* FWD CO2: List styling for feature summaries */
 .clean-list {
   list-style: none;
 }
@@ -257,6 +280,7 @@ select {
   border-bottom: none;
 }
 
+/* FWD CO2: Section heading alignment and spacing */
 .section-head {
   display: flex;
   justify-content: space-between;
@@ -274,10 +298,12 @@ select {
   color: var(--muted);
 }
 
+/* FWD CO2: Search box spacing */
 .search-wrap {
   margin-bottom: 18px;
 }
 
+/* FWD CO2, CO4: Form field and input styling for interactive controls */
 .search-wrap input,
 .goal-form input,
 .goal-form select,
@@ -304,12 +330,14 @@ select {
   color: black;
 }
 
+/* FWD CO2: Responsive module card grid layout */
 .module-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
+/* FWD CO5: Shared card appearance for reusable interface blocks */
 .module-card,
 .info-box,
 .stat-card,
@@ -321,12 +349,14 @@ select {
   transition: 0.28s ease;
 }
 
+/* FWD CO5: Module card visual presentation */
 .module-card {
   padding: 20px;
   position: relative;
   overflow: hidden;
 }
 
+/* FWD CO5: Decorative hover overlay effect */
 .module-card::before {
   content: "";
   position: absolute;
@@ -341,6 +371,7 @@ select {
   opacity: 1;
 }
 
+/* FWD CO4: Hover interaction feedback for clickable UI cards */
 .hover-lift:hover,
 .module-card:hover,
 .stat-card:hover,
@@ -350,6 +381,7 @@ select {
   border-color: rgba(123, 140, 255, 0.28);
 }
 
+/* FWD CO2: Module header alignment */
 .module-top {
   display: flex;
   justify-content: space-between;
@@ -358,6 +390,7 @@ select {
   margin-bottom: 12px;
 }
 
+/* FWD CO5: Badge styling for course labels */
 .module-badge {
   white-space: nowrap;
   padding: 7px 10px;
@@ -380,10 +413,12 @@ select {
   line-height: 1.72;
 }
 
+/* FWD CO2: Action area spacing for module controls */
 .module-actions {
   margin-top: 16px;
 }
 
+/* FWD CO4: Shared interactive button styling */
 .btn {
   border: 1px solid var(--border);
   background: rgba(255,255,255,0.06);
@@ -401,6 +436,7 @@ select {
   transform: translateY(-2px);
 }
 
+/* FWD CO5: Primary action emphasis styling */
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   border-color: transparent;
@@ -416,6 +452,7 @@ select {
   padding: 10px 14px;
 }
 
+/* FWD CO2: Goal form layout */
 .goal-form {
   display: grid;
   grid-template-columns: 1.5fr 0.8fr auto;
@@ -423,6 +460,7 @@ select {
   margin-bottom: 14px;
 }
 
+/* FWD CO2: Goal action controls grouping */
 .goal-actions {
   display: flex;
   gap: 12px;
@@ -430,6 +468,7 @@ select {
   margin-bottom: 16px;
 }
 
+/* FWD CO2: Informational summary grid layout */
 .info-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -444,6 +483,7 @@ select {
   margin-bottom: 8px;
 }
 
+/* FWD CO2: Sticky analytics sidebar layout */
 .analytics-panel {
   position: sticky;
   top: 24px;
@@ -456,6 +496,7 @@ select {
   overflow-y: auto;
 }
 
+/* FWD CO2: Analytics header alignment */
 .analytics-head {
   display: flex;
   align-items: center;
@@ -463,6 +504,7 @@ select {
   margin-bottom: 18px;
 }
 
+/* FWD CO5: Animated live indicator styling */
 .live-dot {
   width: 14px;
   height: 14px;
@@ -472,12 +514,14 @@ select {
   animation: pulse 1.6s infinite;
 }
 
+/* FWD CO5: Animation for live analytics status */
 @keyframes pulse {
   0% { transform: scale(1); opacity: 1; }
   70% { transform: scale(1.18); opacity: 0.5; }
   100% { transform: scale(1); opacity: 1; }
 }
 
+/* FWD CO2: Statistics card grid structure */
 .stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -500,6 +544,7 @@ select {
   font-size: 1.35rem;
 }
 
+/* FWD CO2: Analytics content section spacing */
 .analytics-box {
   margin-top: 16px;
 }
@@ -508,6 +553,7 @@ select {
   margin-bottom: 10px;
 }
 
+/* FWD CO1: List reset and consistent analytics item styling */
 .simple-list {
   list-style: none;
 }
@@ -522,6 +568,7 @@ select {
   line-height: 1.55;
 }
 
+/* FWD CO5: Card shimmer hover effect for premium visual feedback */
 .shimmer-card::after {
   content: "";
   position: absolute;
@@ -538,6 +585,7 @@ select {
   left: 140%;
 }
 
+/* FWD CO2: Module page layout grid structure */
 .module-page-wrapper {
   width: 92%;
   max-width: 1380px;
@@ -551,6 +599,7 @@ select {
   padding: 24px;
 }
 
+/* FWD CO2: Sticky sidebar for module analytics and notes */
 .module-sidebar-card {
   padding: 20px;
   position: sticky;
@@ -558,6 +607,7 @@ select {
   align-self: start;
 }
 
+/* FWD CO2: Module hero section spacing */
 .module-hero {
   margin-bottom: 22px;
 }
@@ -572,6 +622,7 @@ select {
   line-height: 1.72;
 }
 
+/* FWD CO2: Module metadata chip arrangement */
 .module-meta {
   display: flex;
   gap: 12px;
@@ -579,6 +630,7 @@ select {
   margin-top: 16px;
 }
 
+/* FWD CO5: Chip-style visual labels */
 .meta-chip {
   padding: 8px 12px;
   border-radius: 999px;
@@ -588,6 +640,7 @@ select {
   font-size: 0.86rem;
 }
 
+/* FWD CO2: Action bar layout for module controls */
 .module-actions-bar {
   display: flex;
   gap: 12px;
@@ -595,6 +648,7 @@ select {
   margin: 20px 0 26px;
 }
 
+/* FWD CO2: Vertical module content arrangement */
 .module-content {
   display: grid;
   gap: 18px;
@@ -613,6 +667,7 @@ select {
   margin-top: 8px;
 }
 
+/* FWD CO2: Sidebar action tile spacing */
 .action-tile {
   padding: 16px;
   margin-bottom: 14px;
@@ -627,17 +682,20 @@ select {
   margin-bottom: 12px;
 }
 
+/* FWD CO1: Supporting helper text presentation */
 .helper-note {
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.6;
 }
 
+/* FWD CO4: Dynamic highlight style for reading-focused content blocks */
 .highlighted-reading {
   border-color: rgba(123, 140, 255, 0.32) !important;
   box-shadow: 0 0 0 1px rgba(123, 140, 255, 0.12), 0 18px 34px rgba(0, 0, 0, 0.18);
 }
 
+/* FWD CO5: Responsive layout adjustments for tablet-sized screens */
 @media (max-width: 1180px) {
   .layout,
   .module-page-wrapper {
@@ -662,6 +720,7 @@ select {
   }
 }
 
+/* FWD CO5: Responsive layout adjustments for smaller screens */
 @media (max-width: 820px) {
   .topbar {
     flex-direction: column;
@@ -683,6 +742,7 @@ select {
   }
 }
 
+/* FWD CO5: Mobile-friendly spacing adjustments */
 @media (max-width: 560px) {
   .topbar,
   .layout,
