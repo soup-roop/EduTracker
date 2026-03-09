@@ -1,3 +1,4 @@
+// FWD CO3, CO4 + DSA CO6: Core frontend logic integrating interaction tracking with data structure based analytics
 // ===============================
 // EDUTRACK - MULTI PAGE TRACKER
 // PURE FRONTEND USING localStorage
@@ -5,6 +6,8 @@
 
 const STORAGE_KEY = "edutrack_state_v2";
 const MAX_ACTIVITY = 10;
+
+// DSA CO1: Module list supports search and ranking operations
 const MODULES = [
   "HTML Basics",
   "CSS Styling",
@@ -17,6 +20,7 @@ const MODULES = [
 // -----------------------------
 // QUEUE
 // -----------------------------
+// DSA CO3: Queue implementation used for buffering interaction events before processing
 class EventQueue {
   constructor(items = []) {
     this.items = items;
@@ -42,6 +46,7 @@ class EventQueue {
 // -----------------------------
 // STACK
 // -----------------------------
+// DSA CO3: Stack implementation used for undo action management
 class ActionStack {
   constructor(items = []) {
     this.items = items;
@@ -63,6 +68,7 @@ class ActionStack {
 // -----------------------------
 // STATE
 // -----------------------------
+// DSA CO4: Keyed module statistics structure for efficient lookup and update
 function defaultModuleStats(name) {
   return {
     name,
@@ -75,6 +81,7 @@ function defaultModuleStats(name) {
   };
 }
 
+// DSA CO6: Initializes the complete application state for the analytics system
 function getDefaultState() {
   const modules = {};
   MODULES.forEach((name) => {
@@ -91,6 +98,7 @@ function getDefaultState() {
   };
 }
 
+// FWD CO3, CO4: Loads browser-side persisted data using localStorage
 function loadState() {
   const raw = localStorage.getItem(STORAGE_KEY);
   if (!raw) return getDefaultState();
@@ -120,6 +128,7 @@ function loadState() {
   }
 }
 
+// FWD CO3: Saves current analytics state back into browser storage
 function saveState() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
@@ -131,15 +140,18 @@ let undoStack = new ActionStack(state.undoStack);
 // -----------------------------
 // HELPERS
 // -----------------------------
+// DSA CO3: Synchronizes queue and stack structures into persistent state
 function syncStructuresToState() {
   state.queue = eventQueue.items;
   state.undoStack = undoStack.items;
 }
 
+// FWD CO3: Utility function for timestamp generation
 function getTimeLabel() {
   return new Date().toLocaleTimeString();
 }
 
+// DSA CO2: Recent activity is maintained in linked-list style chronological order
 function addRecentActivity(message) {
   state.recentActivity.unshift({
     time: getTimeLabel(),
@@ -151,6 +163,7 @@ function addRecentActivity(message) {
   }
 }
 
+// DSA CO3: Queue concept used for event buffering before analytics updates
 function queueEvent(type, topic, extra = {}) {
   eventQueue.enqueue({
     type,
@@ -163,6 +176,7 @@ function queueEvent(type, topic, extra = {}) {
   updateUI();
 }
 
+// DSA CO5: Practical queue processing for real-world interaction workflow
 function processQueue() {
   let processed = 0;
 
@@ -206,6 +220,7 @@ function processQueue() {
 
 setInterval(processQueue, 350);
 
+// DSA CO1: Sorting logic is used to rank the most active learning topics
 function getTopTopics() {
   return Object.values(state.modules)
     .map((m) => ({
@@ -216,6 +231,7 @@ function getTopTopics() {
     .sort((a, b) => b.score - a.score || b.timeSpent - a.timeSpent);
 }
 
+// DSA CO1: Aggregation logic supports analytics comparison across modules
 function getAverageScroll() {
   const values = Object.values(state.modules).map((m) => m.scrollDepth || 0);
   if (values.length === 0) return 0;
@@ -223,14 +239,17 @@ function getAverageScroll() {
   return Math.round(sum / values.length);
 }
 
+// DSA CO5: Practical analytics computation for total engagement time
 function getTotalTime() {
   return Object.values(state.modules).reduce((acc, module) => acc + module.timeSpent, 0);
 }
 
+// DSA CO4: Fast keyed access supports bookmark aggregation
 function getBookmarkCount() {
   return Object.values(state.modules).filter((m) => m.bookmarked).length;
 }
 
+// DSA CO4: Fast keyed access supports completion aggregation
 function getCompletedCount() {
   return Object.values(state.modules).filter((m) => m.completed).length;
 }
@@ -238,6 +257,7 @@ function getCompletedCount() {
 // -----------------------------
 // DASHBOARD UI
 // -----------------------------
+// FWD CO4: Dashboard analytics are rendered dynamically using DOM updates
 function updateDashboardUI() {
   const clickCountEl = document.getElementById("clickCount");
   const scrollDepthEl = document.getElementById("scrollDepth");
@@ -307,6 +327,7 @@ function updateDashboardUI() {
   }
 }
 
+// FWD CO3, CO4 + DSA CO3: Dashboard actions combine form handling, DOM events, stack, and priority behavior
 function setupDashboardActions() {
   const goalForm = document.getElementById("goalForm");
   const goalText = document.getElementById("goalText");
@@ -400,6 +421,7 @@ function setupDashboardActions() {
     });
   }
 
+  // DSA CO3: Stack is used to support undo for tracked user actions
   if (undoBtn) {
     undoBtn.addEventListener("click", function () {
       const action = undoStack.pop();
@@ -435,10 +457,12 @@ function setupDashboardActions() {
 // -----------------------------
 // MODULE PAGE UI
 // -----------------------------
+// FWD CO4: Reads the active module page context from the DOM
 function getModuleNameFromBody() {
   return document.body.dataset.module || "";
 }
 
+// FWD CO2: Supports clean navigation between module pages
 function getModuleHref(name) {
   const map = {
     "HTML Basics": "html-module.html",
@@ -451,6 +475,7 @@ function getModuleHref(name) {
   return map[name] || "index.html";
 }
 
+// FWD CO4: Updates per-module analytics values dynamically in the DOM
 function updateModulePageUI(moduleName) {
   const moduleStats = state.modules[moduleName];
   if (!moduleStats) return;
@@ -470,6 +495,7 @@ function updateModulePageUI(moduleName) {
   if (completeStatus) completeStatus.textContent = moduleStats.completed ? "Completed" : "Not Completed";
 }
 
+// FWD CO3, CO4 + DSA CO5: Module page interactions feed practical analytics workflow
 function setupModulePage(moduleName) {
   const bookmarkBtn = document.getElementById("bookmarkModuleBtn");
   const completeBtn = document.getElementById("completeModuleBtn");
@@ -529,6 +555,7 @@ function setupModulePage(moduleName) {
     });
   }
 
+  // FWD CO4: Click interactions are captured to update live engagement analytics
   document.addEventListener("click", function (e) {
     if (e.target.tagName === "BUTTON" || e.target.tagName === "A") {
       state.totalClicks += 1;
@@ -546,31 +573,33 @@ function setupModulePage(moduleName) {
     updateUI();
   }, 1000);
 
+  // FWD CO4: Scroll activity is tracked to calculate engagement depth on module pages
   function updateScrollDepthLive() {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-  let percent = 0;
+    let percent = 0;
 
-  if (docHeight > 0) {
-    percent = Math.round((scrollTop / docHeight) * 100);
+    if (docHeight > 0) {
+      percent = Math.round((scrollTop / docHeight) * 100);
+    }
+
+    percent = Math.max(0, Math.min(percent, 100));
+
+    // DSA CO1: Maximum scroll depth is retained as an engagement comparison metric
+    if (percent > state.modules[moduleName].scrollDepth) {
+      state.modules[moduleName].scrollDepth = percent;
+    }
+
+    saveState();
+    updateUI();
   }
-
-  percent = Math.max(0, Math.min(percent, 100));
-
-  // keep the maximum scroll reached
-  if (percent > state.modules[moduleName].scrollDepth) {
-    state.modules[moduleName].scrollDepth = percent;
-  }
-
-  saveState();
-  updateUI();
-}
 
   window.addEventListener("scroll", updateScrollDepthLive);
   window.addEventListener("resize", updateScrollDepthLive);
   window.addEventListener("load", updateScrollDepthLive);
 
+  // FWD CO4: IntersectionObserver provides dynamic visual feedback during reading
   const readObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -592,6 +621,7 @@ function setupModulePage(moduleName) {
 // -----------------------------
 // SHARED UI UPDATE
 // -----------------------------
+// FWD CO4: Shared UI refresh updates dashboard and module views dynamically
 function updateUI() {
   updateDashboardUI();
 
@@ -604,6 +634,7 @@ function updateUI() {
   saveState();
 }
 
+// FWD CO3, CO4: Application startup initializes dashboard and module behavior
 document.addEventListener("DOMContentLoaded", function () {
   const pageType = document.body.dataset.page;
   updateUI();
