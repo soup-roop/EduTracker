@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CSS Styling - EduTrack</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" /> <!-- CO1: Proper HTML document structure -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- CO1: Responsive meta setup -->
+  <title>CSS Styling - EduTrack</title> <!-- CO1: Page title definition -->
+  <link rel="stylesheet" href="style.css" /> <!-- CO2: External CSS styling -->
 </head>
-<body data-page="module" data-module="CSS Styling">
-  <div class="bg-orb orb-1"></div>
-  <div class="bg-orb orb-2"></div>
-  <div class="bg-grid"></div>
 
-  <header class="topbar">
+<body data-page="module" data-module="CSS Styling"> <!-- CO4: Module analytics tracking -->
+
+  <div class="bg-orb orb-1"></div> <!-- CO2: Visual CSS background element -->
+  <div class="bg-orb orb-2"></div> <!-- CO2: Decorative styling -->
+  <div class="bg-grid"></div> <!-- CO2: Layout background grid -->
+
+  <header class="topbar"> <!-- CO1: Semantic header section -->
     <div class="brand-wrap">
       <div class="logo">E</div>
       <div>
@@ -20,13 +22,14 @@
       </div>
     </div>
 
-    <nav class="nav">
+    <nav class="nav"> <!-- CO1: Navigation structure -->
       <a href="index.html">Dashboard</a>
       <a href="javascript-module.html">Next Module</a>
     </nav>
   </header>
 
-  <main class="module-page-wrapper">
+  <main class="module-page-wrapper"> <!-- CO1: Main content container -->
+
     <section class="module-main">
       <div class="module-hero">
         <span class="pill">FWD CO2</span>
@@ -45,12 +48,13 @@
       </div>
 
       <div class="module-actions-bar">
-        <button id="bookmarkModuleBtn" class="btn btn-primary" type="button">Toggle Bookmark</button>
-        <button id="completeModuleBtn" class="btn btn-secondary" type="button">Toggle Complete</button>
+        <button id="bookmarkModuleBtn" class="btn btn-primary" type="button">Toggle Bookmark</button> <!-- CO4: Interaction tracking -->
+        <button id="completeModuleBtn" class="btn btn-secondary" type="button">Toggle Complete</button> <!-- CO4: Completion tracking -->
         <a class="btn btn-secondary" href="index.html">Back to Dashboard</a>
       </div>
 
       <section class="module-content">
+
         <article class="module-content-block">
           <h3>1. Selectors</h3>
           <p>
@@ -82,12 +86,15 @@
             Hover effects, shadows, gradients, and soft borders improve the visual experience.
           </p>
         </article>
+
       </section>
     </section>
 
-    <aside class="module-sidebar-card">
+    <aside class="module-sidebar-card"> <!-- CO1: Sidebar content section -->
+
       <div class="action-tile">
-        <h3>Module Analytics</h3>
+        <h3>Module Analytics</h3> <!-- CO4: Analytics display -->
+
         <ul class="simple-list">
           <li>Opens: <strong id="moduleOpenCount">0</strong></li>
           <li>Time Spent: <strong id="moduleTimeSpent">0s</strong></li>
@@ -99,14 +106,17 @@
       </div>
 
       <div class="action-tile">
-        <h3>Quick Note</h3>
+        <h3>Quick Note</h3> <!-- CO4: User interaction feature -->
         <textarea id="noteInput" class="note-area" rows="5" placeholder="Write a quick note..."></textarea>
         <br><br>
         <button id="saveNoteBtn" class="btn btn-primary" type="button">Save Note</button>
       </div>
+
     </aside>
+
   </main>
 
-  <script src="tracker.js"></script>
+  <script src="tracker.js"></script> <!-- CO4: JavaScript analytics and tracking -->
+
 </body>
 </html>
