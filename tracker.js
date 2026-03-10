@@ -18,28 +18,83 @@ const MODULES = [
 ];
 
 // -----------------------------
+// NODE
+// -----------------------------
+// DSA CO3: Node structure used for linked-list based queue and stack implementation
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
+// -----------------------------
 // QUEUE
 // -----------------------------
 // DSA CO3: Queue implementation used for buffering interaction events before processing
 class EventQueue {
   constructor(items = []) {
-    this.items = items;
+    this.front = null;
+    this.rear = null;
+    this.length = 0;
+
+    items.forEach((item) => this.enqueue(item));
   }
 
   enqueue(item) {
-    this.items.push(item);
+    const newNode = new Node(item);
+
+    if (!this.front) {
+      this.front = newNode;
+      this.rear = newNode;
+    } else {
+      this.rear.next = newNode;
+      this.rear = newNode;
+    }
+
+    this.length++;
   }
 
   dequeue() {
-    return this.items.length ? this.items.shift() : null;
+    if (!this.front) return null;
+
+    const removed = this.front.data;
+    this.front = this.front.next;
+
+    if (!this.front) {
+      this.rear = null;
+    }
+
+    this.length--;
+    return removed;
   }
 
   size() {
-    return this.items.length;
+    return this.length;
   }
 
   clear() {
-    this.items = [];
+    this.front = null;
+    this.rear = null;
+    this.length = 0;
+  }
+
+  // DSA CO3: Converts linked queue into array form for persistence in localStorage
+  toArray() {
+    const result = [];
+    let current = this.front;
+
+    while (current) {
+      result.push(current.data);
+      current = current.next;
+    }
+
+    return result;
+  }
+
+  // DSA CO3: items property is preserved so existing application logic remains unaffected
+  get items() {
+    return this.toArray();
   }
 }
 
@@ -49,19 +104,49 @@ class EventQueue {
 // DSA CO3: Stack implementation used for undo action management
 class ActionStack {
   constructor(items = []) {
-    this.items = items;
+    this.top = null;
+    this.length = 0;
+
+    items.forEach((item) => this.push(item));
   }
 
   push(item) {
-    this.items.push(item);
+    const newNode = new Node(item);
+    newNode.next = this.top;
+    this.top = newNode;
+    this.length++;
   }
 
   pop() {
-    return this.items.length ? this.items.pop() : null;
+    if (!this.top) return null;
+
+    const removed = this.top.data;
+    this.top = this.top.next;
+    this.length--;
+    return removed;
   }
 
   clear() {
-    this.items = [];
+    this.top = null;
+    this.length = 0;
+  }
+
+  // DSA CO3: Converts linked stack into array form for persistence in localStorage
+  toArray() {
+    const result = [];
+    let current = this.top;
+
+    while (current) {
+      result.push(current.data);
+      current = current.next;
+    }
+
+    return result.reverse();
+  }
+
+  // DSA CO3: items property is preserved so existing application logic remains unaffected
+  get items() {
+    return this.toArray();
   }
 }
 
